@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "cc2b",
+      "phone": "+996225304320",
+      "name": "User 4320",
+      "avatar": "https://i.pravatar.cc/150?u=+996225304320"
+    },
+    {
+      "id": "0605",
+      "phone": "+996225304322",
+      "name": "User 4322",
+      "avatar": "https://i.pravatar.cc/150?u=+996225304322"
+    }
+  ],
+  "chats": [
+    {
+      "id": "611a",
+      "members": [
+        "0605",
+        "cc2b"
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "464a",
+      "chatId": "611a",
+      "senderId": "0605",
+      "text": "привет",
+      "createdAt": "2025-11-17T10:41:59.484Z"
+    },
+    {
+      "id": "7989",
+      "chatId": "611a",
+      "senderId": "cc2b",
+      "text": "привет",
+      "createdAt": "2025-11-17T10:42:53.960Z"
+    },
+    {
+      "id": "1765",
+      "chatId": "611a",
+      "senderId": "0605",
+      "text": "как ты?",
+      "createdAt": "2025-11-17T10:43:45.694Z"
+    },
+    {
+      "id": "52b6",
+      "chatId": "611a",
+      "senderId": "0605",
+      "text": "как ты*",
+      "createdAt": "2025-11-17T10:48:03.927Z"
+    },
+    {
+      "id": "e188",
+      "chatId": "611a",
+      "senderId": "0605",
+      "text": "как ты",
+      "createdAt": "2025-11-17T12:54:22.647Z"
+    }
+  ],
+  "recommended": [
+    {
+      "id": "0",
+      "name": "Anna Conroy",
+      "phone": "999111222",
+      "avatar": "https://..."
+    },
+    {
+      "id": "1",
+      "name": "Britney Spinka",
+      "phone": "772233445",
+      "avatar": "https://..."
+    }
+  ]
+}

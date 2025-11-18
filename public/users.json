@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Anna Conroy",
+    "username": "Earline.Crona",
+    "email": "Joaquin_Farrell79@yahoo.com",
+    "address": { "city": "New Dave" },
+    "phone": "886.619.6235 x12330",
+    "company": { "name": "Quigley, Marks and Durgan" },
+    "id": 0
+  },
+  {
+    "name": "Britney Spinka",
+    "username": "Dulce.Bartell",
+    "email": "Alexane.Anderson@yahoo.com",
+    "address": { "city": "South Rossland" },
+    "phone": "520.773.6102 x97543",
+    "company": { "name": "Smitham and Daughters" },
+    "id": 1
+  }
+]
