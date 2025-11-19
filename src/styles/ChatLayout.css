@@ -1,0 +1,29 @@
+.chat-page-layout {
+  height: 100vh;
+  padding: 2%;
+}
+
+.sider-content {
+  padding: 12px;
+  border-radius: 15px 0 0 15px;
+}
+
+.header-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.profile-name {
+  margin-left: 8px;
+}
+
+.content-area {
+  padding: 12px;
+}
+
+.chat-page-layout .ant-card {
+  border-radius: 0;
+  border: none;
+  border-left: 1px solid #f0f0f0;
+}

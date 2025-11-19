@@ -1,55 +1,57 @@
 import React, { useEffect } from "react";
-import { Layout, List, Avatar, Button, Typography } from "antd";
+import { Layout, Avatar, Button, Typography, Popover } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../redux/slices/usersSlice";
-import { getChats } from "../api/chat";
-import { setList } from "../redux/slices/chatsSlice";
+import { fetchChats } from "../redux/slices/chatsSlice";
 import { logout } from "../redux/slices/authSlice";
-import UserList from "../components/UserList";
+import UserList from "../components/ChatList";
 import ChatWindow from "../components/ChatWindow";
+import ProfileEdit from "../components/ProfileEdit";
+import GroupCreate from "../components/GroupCreate";
+import ChatDetails from "../components/ChatDetails";
+import { LogoutOutlined } from "@ant-design/icons";
+import "../styles/ChatLayout.css";
+import "../styles/ChatComponents.css";
 
 const { Sider, Content, Header } = Layout;
 
-export default function ChatPage() {
+export default function Chat() {
   const dispatch = useDispatch();
   const user = useSelector((s) => s.auth.user);
 
   useEffect(() => {
     dispatch(fetchUsers());
-    (async () => {
-      const list = await getChats();
-      dispatch(setList(list));
-    })();
+    dispatch(fetchChats());
   }, [dispatch]);
 
   return (
-    <Layout style={{ height: "100vh" }}>
-      <Sider width={300} theme="light" style={{ padding: 12 }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginBottom: 12,
-          }}
-        >
+    <Layout className="chat-page-layout">
+      <Sider width={300} theme="light" className="sider-content">
+        <div className="header-controls">
           <div>
             <Avatar src={user?.avatar} />
-            <Typography.Text style={{ marginLeft: 8 }}>
+            <Typography.Text className="profile-name">
               {user?.name}
             </Typography.Text>
           </div>
-          <Button danger onClick={() => dispatch(logout())}>
-            Logout
-          </Button>
+          <div>
+            <ProfileEdit />
+          </div>
+          <div>
+            <GroupCreate />
+          </div>
+          <Popover content="Выйти">
+            <Button danger onClick={() => dispatch(logout())}>
+              <LogoutOutlined />
+            </Button>
+          </Popover>
         </div>
         <UserList />
       </Sider>
       <Layout>
-        <Header style={{ background: "#fff" }} />
-        <Content style={{ padding: 12 }}>
-          <ChatWindow />
-        </Content>
+        <ChatWindow />
       </Layout>
+      <ChatDetails />
     </Layout>
   );
 }

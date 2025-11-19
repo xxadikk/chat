@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Input, Button, Typography, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { loginByPhone } from "../redux/slices/authSlice";
+import "../styles/Login.css";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -14,31 +15,26 @@ export default function Login() {
   };
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Card style={{ width: 360 }}>
-        <Space direction="vertical" style={{ width: "100%" }}>
+    <div className="login-page-container">
+      <Card className="login-card">
+        <Space direction="vertical" className="login-space">
           <Typography.Title level={4} style={{ margin: 0 }}>
-            Sign in by phone
+            Вход через номер телефона
           </Typography.Title>
           <Input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="+996771000000"
+            placeholder="996225000000"
           />
-          <Button
-            type="primary"
-            loading={status === "loading"}
-            onClick={submit}
-          >
-            Enter
-          </Button>
+          <div className="button-right">
+            <Button
+              type="primary"
+              loading={status === "loading"}
+              onClick={submit}
+            >
+              Вход
+            </Button>
+          </div>
         </Space>
       </Card>
     </div>

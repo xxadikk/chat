@@ -1,0 +1,114 @@
+/* ProfileEdit Modal */
+
+.profile-modal-fields {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+/*ChatList */
+
+.chat-list-item {
+  transition: background-color 0.3s ease;
+  padding: 0 !important;
+}
+
+.chat-list-item.is-selected {
+  background-color: #e6f7ff !important;
+}
+
+.chat-list-item:not(.is-selected):hover {
+  background-color: #f0f0f0;
+}
+
+.chat-list-item .ant-list-item-meta {
+  padding: 12px 16px;
+  align-items: center;
+}
+
+.chat-clickable-meta {
+  cursor: pointer;
+  padding-right: 12px;
+}
+
+/* ChatWindow */
+
+.chat-window-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.messages-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.message-row.mine {
+  justify-content: flex-end;
+}
+
+.message-row.theirs {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-content.mine {
+  align-items: flex-end;
+}
+
+.message-content.theirs {
+  align-items: flex-start;
+}
+
+.sender-name {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.message-bubble {
+  border: 1px solid #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.message-bubble.mine {
+  background: #e6f7ff;
+}
+
+.message-bubble.theirs {
+  background: #fff;
+}
+
+.message-text {
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+.message-time {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.message-time.mine {
+  text-align: right;
+}
+
+.message-time.theirs {
+  text-align: left;
+}

@@ -1,0 +1,41 @@
+.login-page-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://wallpapercave.com/wp/wp7753575.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-card {
+  max-width: 360px;
+  width: 100%;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login-card .ant-typography {
+  color: #fff !important;
+}
+
+.login-card .ant-input,
+.login-card .ant-input-group-addon {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.login-space {
+  width: 100%;
+}
+
+.button-right {
+  display: flex;
+  justify-content: flex-end;
+}

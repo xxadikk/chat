@@ -1,55 +1,84 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Card } from "antd";
+import { Card, Typography } from "antd";
 import MessageInput from "./MessageInput";
 import { fetchMessages } from "../redux/slices/messagesSlice";
+import { NotificationTwoTone } from "@ant-design/icons";
+import ChatHeader from "./ChatHeaders";
+import { Content, Header } from "antd/es/layout/layout";
+
+const { Text } = Typography;
 
 export default function ChatWindow() {
   const dispatch = useDispatch();
   const chat = useSelector((s) => s.chats.current);
   const messages = useSelector((s) => s.messages.list);
   const me = useSelector((s) => s.auth.user);
+  const users = useSelector((s) => s.users.list);
+
+  const isGroup = chat && !Array.isArray(chat.members);
 
   useEffect(() => {
-    if (chat) dispatch(fetchMessages(chat.id));
+    if (chat?.id) dispatch(fetchMessages(chat.id));
   }, [chat, dispatch]);
 
   if (!chat) {
-    return <Card>Open a chat from the left to start messaging.</Card>;
+    return (
+      <Card
+        style={{
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <NotificationTwoTone
+          style={{ fontSize: 52, display: "flex", justifyContent: "center" }}
+        />
+        <div>Откройте чат слева, чтобы начать обмен сообщениями.</div>
+      </Card>
+    );
   }
 
+  const getSenderName = (senderId) => {
+    const sender = users.find((u) => u.id === senderId);
+    return sender?.name || "Неизвестный";
+  };
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "80vh" }}>
-      <div style={{ flex: 1, overflowY: "auto", padding: 12 }}>
-        {messages.map((m) => (
-          <div
-            key={m.id}
-            style={{
-              display: "flex",
-              justifyContent: m.senderId === me.id ? "flex-end" : "flex-start",
-              marginBottom: 8,
-            }}
-          >
-            <div
-              style={{
-                maxWidth: "65%",
-                background: m.senderId === me.id ? "#e6f7ff" : "#fff",
-                padding: "2px auto",
-                borderRadius: 6,
-              }}
-            >
-              <div style={{ fontSize: 12, color: "#555" }}>
-                {/* {m.senderId === me.id ? "You" : "Them"} */}
-              </div>
-              <div style={{ marginTop: 6 }}>{m.text}</div>
-              <div style={{ fontSize: 10, color: "#888", marginTop: 6 }}>
-                {new Date(m.createdAt).toLocaleTimeString()}
-              </div>
-            </div>
+    <>
+      <Header style={{ background: "#fff" }}>
+        <ChatHeader />
+      </Header>
+      <Content className="content-area">
+        <div className="chat-window-container">
+          <div className="messages-scroll-area">
+            {messages.map((m) => {
+              const isMe = m.senderId === me.id;
+              const senderName = getSenderName(m.senderId);
+
+              const modifier = isMe ? "mine" : "theirs";
+              const timeModifier = isMe ? "mine" : "theirs";
+              return (
+                <div key={m.id} className={`message-row ${modifier}`}>
+                  <div className={`message-content ${modifier}`}>
+                    {isGroup && !isMe && (
+                      <Text className="sender-name">{senderName}</Text>
+                    )}
+                    <div className={`message-bubble ${modifier}`}>
+                      <div className="message-text">{m.text}</div>
+                      <div className={`message-time ${timeModifier}`}>
+                        {new Date(m.createdAt).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
-      <MessageInput chat={chat} />
-    </div>
+          <MessageInput chat={chat} />
+        </div>
+      </Content>
+    </>
   );
 }

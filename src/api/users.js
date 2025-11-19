@@ -10,6 +10,11 @@ export const createUser = async (data) => {
   return res.data;
 };
 
+export const updateUser = async (id, patch) => {
+  const res = await api.patch(`/users/${id}`, patch);
+  return res.data;
+};
+
 export const getAllUsers = async () => {
   const res = await api.get("/users");
   return res.data;

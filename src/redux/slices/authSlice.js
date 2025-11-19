@@ -11,6 +11,13 @@ export const loginByPhone = createAsyncThunk(
         phone,
         name,
         avatar: `https://i.pravatar.cc/150?u=${phone}`,
+        email: "",
+        website: "",
+        company: {
+          name: "",
+          catchPhrase: "",
+          bs: "",
+        },
       });
     }
     return user;
@@ -31,6 +38,10 @@ const authSlice = createSlice({
       state.user = null;
       localStorage.removeItem("user");
     },
+    setUser(state, action) {
+      state.user = action.payload;
+      localStorage.setItem("user", JSON.stringify(action.payload));
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -50,5 +61,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, setUser } = authSlice.actions;
 export default authSlice.reducer;

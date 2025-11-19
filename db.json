@@ -1,76 +1,102 @@
 {
   "users": [
     {
-      "id": "cc2b",
-      "phone": "+996225304320",
+      "id": "8589",
+      "phone": "996225304320",
       "name": "User 4320",
-      "avatar": "https://i.pravatar.cc/150?u=+996225304320"
+      "avatar": "https://i.pravatar.cc/150?u=996225304320",
+      "email": "",
+      "website": "",
+      "company": {
+        "name": "Mbank",
+        "catchPhrase": "",
+        "bs": ""
+      }
     },
     {
-      "id": "0605",
-      "phone": "+996225304322",
-      "name": "User 4322",
-      "avatar": "https://i.pravatar.cc/150?u=+996225304322"
+      "id": "5880",
+      "phone": "996225304321",
+      "name": "User 4321",
+      "avatar": "https://i.pravatar.cc/150?u=996225304321",
+      "email": "",
+      "website": "",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      }
+    },
+    {
+      "id": "e3ea",
+      "phone": "996225304323",
+      "name": "User 4323",
+      "avatar": "https://i.pravatar.cc/150?u=996225304323",
+      "email": "",
+      "website": "",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      }
     }
   ],
   "chats": [
     {
-      "id": "611a",
+      "id": "501f",
+      "members": {
+        "type": "group",
+        "title": "Компания Мбанк",
+        "adminId": "8589",
+        "users": [
+          "8589",
+          "5880",
+          "e3ea"
+        ]
+      }
+    },
+    {
+      "id": "8677",
       "members": [
-        "0605",
-        "cc2b"
+        "5880",
+        "8589"
+      ]
+    },
+    {
+      "id": "07b5",
+      "members": [
+        "e3ea",
+        "5880"
+      ]
+    },
+    {
+      "id": "bb67",
+      "members": [
+        "e3ea",
+        "8589"
       ]
     }
   ],
   "messages": [
     {
-      "id": "464a",
-      "chatId": "611a",
-      "senderId": "0605",
-      "text": "привет",
-      "createdAt": "2025-11-17T10:41:59.484Z"
+      "id": "46d6",
+      "chatId": "8677",
+      "senderId": "5880",
+      "text": "ыв",
+      "createdAt": "2025-11-19T13:42:29.286Z"
     },
     {
-      "id": "7989",
-      "chatId": "611a",
-      "senderId": "cc2b",
-      "text": "привет",
-      "createdAt": "2025-11-17T10:42:53.960Z"
+      "id": "1558",
+      "chatId": "07b5",
+      "senderId": "e3ea",
+      "text": "ghbdtn",
+      "createdAt": "2025-11-19T14:02:44.281Z"
     },
     {
-      "id": "1765",
-      "chatId": "611a",
-      "senderId": "0605",
-      "text": "как ты?",
-      "createdAt": "2025-11-17T10:43:45.694Z"
-    },
-    {
-      "id": "52b6",
-      "chatId": "611a",
-      "senderId": "0605",
-      "text": "как ты*",
-      "createdAt": "2025-11-17T10:48:03.927Z"
-    },
-    {
-      "id": "e188",
-      "chatId": "611a",
-      "senderId": "0605",
-      "text": "как ты",
-      "createdAt": "2025-11-17T12:54:22.647Z"
-    }
-  ],
-  "recommended": [
-    {
-      "id": "0",
-      "name": "Anna Conroy",
-      "phone": "999111222",
-      "avatar": "https://..."
-    },
-    {
-      "id": "1",
-      "name": "Britney Spinka",
-      "phone": "772233445",
-      "avatar": "https://..."
+      "id": "3c43",
+      "chatId": "bb67",
+      "senderId": "e3ea",
+      "text": "df",
+      "createdAt": "2025-11-19T14:03:07.281Z"
     }
   ]
 }
